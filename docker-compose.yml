@@ -1,10 +1,13 @@
-centos:
-  restart: always
-  build: .
-  container_name: centos6
-  ports:
-    - "80:80"
-    - "443:443"
-    - "2222:22"
-  volumes:
-    - ./sandbox/:/data
+version: '2'
+services:
+  centos:
+    restart: always
+    build: .
+    image: centos6_sshd
+    container_name: centos_sshd
+    ports:
+      - "80:80"
+      - "443:443"
+      - "2222:22"
+    volumes:
+      - ./sandbox/:/data
